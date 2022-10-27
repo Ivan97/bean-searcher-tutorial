@@ -16,3 +16,6 @@ spring:
 bean-searcher:
   sql:
     dialect: postgresql
+  params:
+    pagination:
+      default-size: 10

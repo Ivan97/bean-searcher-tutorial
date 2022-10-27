@@ -1,9 +1,10 @@
 package tech.iooo.coco.service;
 
-import java.util.Collections;
+import java.util.Map;
 
 import com.ejlchina.searcher.BeanSearcher;
 import com.ejlchina.searcher.SearchResult;
+import com.ejlchina.searcher.util.MapUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class UserService {
 
     private final BeanSearcher searcher;
 
-    public SearchResult<User> users() {
-        return searcher.search(User.class, Collections.emptyMap());
+    public SearchResult<User> users(Map<String, String[]> parameterMap) {
+        Map<String, Object> params = MapUtils.flatBuilder(parameterMap).build();
+        return searcher.search(User.class, params);
     }
 }

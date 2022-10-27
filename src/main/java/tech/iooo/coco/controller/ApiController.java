@@ -1,5 +1,7 @@
 package tech.iooo.coco.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,7 @@ public class ApiController {
     private final UserService userService;
 
     @GetMapping("/users")
-    public Result<Object> users() {
-        return Result.of(userService.users());
+    public Result<Object> users(HttpServletRequest request) {
+        return Result.of(userService.users(request.getParameterMap()));
     }
 }
