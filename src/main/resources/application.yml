@@ -1,0 +1,18 @@
+logging:
+  level:
+    ROOT: INFO
+    tech.iooo.coco: DEBUG
+    com.ejlchina.searcher: DEBUG
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/cabana
+    username: cabana
+    password:
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+bean-searcher:
+  sql:
+    dialect: postgresql
